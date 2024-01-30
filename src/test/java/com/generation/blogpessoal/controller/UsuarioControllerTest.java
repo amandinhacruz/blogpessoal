@@ -1,9 +1,10 @@
 ﻿package com.generation.blogpessoal.controller;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 import java.util.Optional;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -54,7 +55,7 @@ public class UsuarioControllerTest {
 		ResponseEntity<Usuario> corpoResposta = testRestTemplate
 			.exchange("/usuarios/cadastrar", HttpMethod.POST, corpoRequisicao, Usuario.class);
 
-		assertEquals(HttpStatus.CREATED, corpoResposta.getStatusCode());
+		Assertions.assertEquals(HttpStatus.CREATED, corpoResposta.getStatusCode());
 	
 	}
 
@@ -71,7 +72,7 @@ public class UsuarioControllerTest {
 		ResponseEntity<Usuario> corpoResposta = testRestTemplate
 			.exchange("/usuarios/cadastrar", HttpMethod.POST, corpoRequisicao, Usuario.class);
 
-		assertEquals(HttpStatus.BAD_REQUEST, corpoResposta.getStatusCode());
+		Assertions.assertEquals(HttpStatus.BAD_REQUEST, corpoResposta.getStatusCode());
 	}
 
 	@Test
@@ -90,7 +91,7 @@ public class UsuarioControllerTest {
 			.withBasicAuth("root@root.com", "rootroot")
 			.exchange("/usuarios/atualizar", HttpMethod.PUT, corpoRequisicao, Usuario.class);
 
-		assertEquals(HttpStatus.OK, corpoResposta.getStatusCode());
+		Assertions.assertEquals(HttpStatus.OK, corpoResposta.getStatusCode());
 		
 	}
 
@@ -108,7 +109,7 @@ public class UsuarioControllerTest {
 		.withBasicAuth("root@root.com", "rootroot")
 			.exchange("/usuarios/all", HttpMethod.GET, null, String.class);
 
-		assertEquals(HttpStatus.OK, resposta.getStatusCode());
+		Assertions.assertEquals(HttpStatus.OK, resposta.getStatusCode());
 
 	}
 
