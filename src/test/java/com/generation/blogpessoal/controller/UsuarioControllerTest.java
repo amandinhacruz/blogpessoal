@@ -1,4 +1,4 @@
-﻿package com.generation.blogpessoal.controller;
+package com.generation.blogpessoal.controller;
 
 
 
